@@ -250,11 +250,11 @@ Handlebars.registerHelper("formatParameters", (parameters: MethodParameter[]) =>
                 rt.push(`${parameter.name}: ${parameter.types.map(v => formatModuleName(v.value)).join(" | ")}`)
             }
         })
-        rt.push("...objects")
+        rt.push("...objects: any[]")
         return rt.join(", ")
 
     } else {
-        return "...objects"
+        return "...objects: any[]"
     }
 })
 
