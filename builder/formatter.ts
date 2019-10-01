@@ -246,6 +246,7 @@ Handlebars.registerHelper("formatParameters", (parameters: MethodParameter[]) =>
     if (parameters) {
         var rt = []
         parameters.forEach(parameter => {
+            parameter.name = parameter.name.replace(/\{|\}/g, "");
             if (!parameter.phoneName) {
                 rt.push(`${parameter.name}: ${parameter.types.map(v => formatModuleName(v.value)).join(" | ")}`)
             }
